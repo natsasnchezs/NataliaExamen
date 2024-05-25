@@ -1,14 +1,20 @@
 <template>
-    <div>
-      <h1 class="text-3xl font-bold mx-10 my-10 tex text-lime-600">
-      Catálogo
-    </h1>
-   <p>Detalle del artículo {{ id }} </p>
-    </div>
-  </template>
+  <div class="mx-10">
+
+<ProductDetail :product="product" />
+
+ </div>
+</template>
 
 <script setup>
-//paginas producto
-
 const { id } = useRoute().params
+
+const uri = 'https://fakestoreapi.com/products/' + id
+
+// fetch the product
+const { data: product } = await useFetch(uri)
+  
+
+
+
 </script>
